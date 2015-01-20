@@ -115,7 +115,7 @@ public class MainActivity extends Activity
         // NOTE: this check is here only because this is a sample! Don't include this
         // check in your actual production app.
         if (!BaseGameUtils.verifySampleSetup(this, R.string.app_id,
-            R.string.trivial_victory_achievement_id)) {
+            R.string.achievement_trivial_victory)) {
           Log.w(TAG, "*** Warning: setup problems detected. Sign in may not work!");
         }
 
@@ -139,7 +139,7 @@ public class MainActivity extends Activity
         if (mGoogleApiClient.isConnected()) {
           // unlock the "Trivial Victory" achievement.
           Games.Achievements.unlock(mGoogleApiClient,
-              getString(R.string.trivial_victory_achievement_id));
+              getString(R.string.achievement_trivial_victory));
         }
         break;
     }
@@ -184,8 +184,7 @@ public class MainActivity extends Activity
       if (responseCode == RESULT_OK) {
         mGoogleApiClient.connect();
       } else {
-        BaseGameUtils.showActivityResultError(this,requestCode,responseCode,
-            R.string.signin_failure, R.string.signin_other_error);
+        BaseGameUtils.showActivityResultError(this,requestCode,responseCode, R.string.signin_other_error);
       }
     }
   }
